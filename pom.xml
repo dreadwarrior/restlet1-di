@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.dreadlabs</groupId>
-  <artifactId>restlet1example</artifactId>
+  <artifactId>restlet1di</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>restlet1example</name>
@@ -16,15 +16,49 @@
     <maven.compiler.target>17</maven.compiler.target>
 
     <!-- dependencies -->
+    <assertj.version>3.22.0</assertj.version>
+    <guice.version>5.1.0</guice.version>
     <junit.version>5.9.2</junit.version>
+    <restlet.version>1.1.7</restlet.version>
   </properties>
+
+  <repositories>
+    <repository>
+      <id>maven-restlet</id>
+      <name>Restlet repository</name>
+      <url>https://maven.restlet.talend.com</url>
+    </repository>
+  </repositories>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.restlet</groupId>
+        <artifactId>org.restlet</artifactId>
+        <version>${restlet.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.noelios.restlet</groupId>
+        <artifactId>com.noelios.restlet</artifactId>
+        <version>${restlet.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.inject</groupId>
+        <artifactId>guice</artifactId>
+        <version>${guice.version}</version>
+      </dependency>
+
+      <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
         <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${assertj.version}</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
@@ -32,8 +66,27 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.restlet</groupId>
+      <artifactId>org.restlet</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.noelios.restlet</groupId>
+      <artifactId>com.noelios.restlet</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
