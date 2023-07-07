@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class HelloWorldTest extends IntegrationTest
+class HelloWorldITest extends IntegrationTest
 {
     @Test
     void shouldGreet() throws IOException {
@@ -33,7 +33,7 @@ class HelloWorldTest extends IntegrationTest
             protected void configure() {
                 bind(NamesProviderService.class);
 
-                bind(NamesRepository.class).to(StaticNamesFromInjectionRepository.class);
+                bind(NamesRepository.class).to(InjectableNamesRepository.class);
                 bind(new TypeLiteral<List<String>>() {}).annotatedWith(Names.named("Names"))
                         .toInstance(List.of("London"));
             }
