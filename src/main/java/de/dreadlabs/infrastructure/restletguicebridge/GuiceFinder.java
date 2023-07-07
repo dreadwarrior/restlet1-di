@@ -19,9 +19,9 @@ public class GuiceFinder extends Finder {
 
     @Override
     public Handler createTarget(Class<? extends Handler> targetClass, Request request, Response response) {
-        Handler result = injector.getInstance(targetClass);
-        result.init(getContext(), request, response);
+        Handler handler = injector.getInstance(targetClass);
+        handler.init(getContext(), request, response);
 
-        return result;
+        return handler;
     }
 }
