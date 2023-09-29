@@ -56,6 +56,20 @@ It's now possible to introduce an (integration) base test class which handles
 starting and stopping the Restlet application. An abstract method allows 
 use-case- or test-specific dependency configuration. See [IntegrationTest](src/test/java/de/dreadlabs/IntegrationTest.java) and [HelloWorldTest](src/test/java/de/dreadlabs/examplefeature/HelloWorldTest.java).
 
+---
+
+**Note**
+
+Before using this approach, make sure you understand the application's 
+bootstrapping process. Check which additional classes and / or packages are 
+registered. For example, application-specific exception mappers could be 
+registered either by the class-based or package-based registration process.
+
+This is required in order to get reliable integration tests which lean towards
+the production configuration of the application.
+
+---
+
 A more sophisticated approach, by using JUnit initializer tooling, would be 
 possible. This would allow better control for _arrange_ steps in specific test
 methods.
